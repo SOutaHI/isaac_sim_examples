@@ -25,5 +25,9 @@ A repository for managing own scene files of  Issac Sim.
     - exist [article](https://github.com/SOutaHI/issac_sim_examples/blob/main/tutorials/required/isaac_sim_workflow/7_isaac_sim_workflows.md) in japanese.
 - [8. hello world](https://github.com/SOutaHI/issac_sim_examples/blob/main/tutorials/required/hello_world/8_hello_world.usd)
     - exist [article](https://github.com/SOutaHI/issac_sim_examples/blob/main/tutorials/required/hello_world/8_hellow_world.md) in japanese.
+- [9. Hello Robot](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/required/hello_robot)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/hello_robot/9_hello_robot.md) in japanese.
+- [10. Adding a Controller](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/required/adding_controller)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/adding_controller/10_adding_controller.md) in japanese.
 
 
