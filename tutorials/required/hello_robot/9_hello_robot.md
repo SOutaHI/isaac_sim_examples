@@ -23,8 +23,8 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_required_he
 
 # 概要
 
-hellow worldのExampleのソースコードに処理を追加し、シーンにNvidia Jetbotを追加します。
-まず、Extentsionの機能を用いて、以前作成したAwesome ExampleのコードにNvidia Jetobotを追加します。
+hello worldのExampleのソースコードに処理を追加し、シーンにNvidia Jetbotを追加します。
+Extentsionの機能を用いて、以前作成したAwesome ExampleのコードにNvidia Jetobotを追加します。
 次の手順を進めます。
 
 1. Awesome Exampleのソースコードを開く
@@ -36,9 +36,13 @@ hellow worldのExampleのソースコードに処理を追加し、シーンにN
 
 ### 1.2 Awesome Exampleのソースコードを表示
 メニューバーのIsaac Examples > Awesome Exampleを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/d7256eb65a44-20220312.png)
 
 次に、Awesome Examplesのウィンドウの右上にある3つのボタンの内、一番左側のOpen Source Codeボタンを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/fb9be634d23d-20220312.png)
+
 選択すると、がVScodeが開き、Hello Worldのソースコードが表示されます。
+![](https://storage.googleapis.com/zenn-user-upload/01ba5d2d3a76-20220312.png)
 
 ## 2. Nvidia Jetbotの処理を追加する 
 vscode上で、hello_world.pyを編集します。
@@ -101,11 +105,12 @@ class HelloWorld(BaseSample):
         return
 ~~~
 
-
+![](https://storage.googleapis.com/zenn-user-upload/aa00eb085a4d-20220312.png)
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
-この状態で、Viewportの左側のPLAYボタンを押すと、Cubeが重力により落下します。
+この状態で、Viewportの左側のPLAYボタンを押すと、Jetbotが重力により落下します。
+![](https://storage.googleapis.com/zenn-user-upload/32fc307ca452-20220312.png)
 
 ## 2.2 Jetbotを動かす
 JetbotのJoint部にPD Controllerを追加し、速度制御で動かします。
@@ -153,11 +158,13 @@ class HelloWorld(BaseSample):
                                                                             joint_velocities=5 * np.random.rand(2,)))
         return
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/5e02f873eac8-20220312.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、Jetbotが直進します。
+![](https://storage.googleapis.com/zenn-user-upload/2e722af74c65-20220312.png)
 
 ## 2.3 Jetbot Classの使用
 
@@ -198,10 +205,9 @@ class HelloWorld(BaseSample):
                                                             joint_velocities=5 * np.random.rand(2,)))
         return
 ~~~
-
+![](https://storage.googleapis.com/zenn-user-upload/b0ef7606f189-20220312.png)
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、Jetbotが直進します。
-
-
+![](https://storage.googleapis.com/zenn-user-upload/5e8d0e9953b7-20220312.png)

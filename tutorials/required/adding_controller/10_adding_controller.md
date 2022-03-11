@@ -35,9 +35,13 @@ Jetbotを追加したAwesome worldのExampleのソースコードに処理を追
 
 ### 1.2 Awesome Exampleのソースコードを表示
 メニューバーのIsaac Examples > Awesome Exampleを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/4571181c5f85-20220312.png)
 
 次に、Awesome Examplesのウィンドウの右上にある3つのボタンの内、一番左側のOpen Source Codeボタンを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/366767d02577-20220312.png)
+
 選択すると、がVScodeが開き、Hello Worldのソースコードが表示されます。
+![](https://storage.googleapis.com/zenn-user-upload/8e09ad29950b-20220312.png)
 
 ## 2. Custom Controllerを追加する 
 vscode上で、hello_world.pyを編集します。
@@ -91,12 +95,15 @@ class HelloWorld(BaseSample):
         self._jetbot.apply_wheel_actions(self._my_controller.forward(command=[20.0, np.pi/ 4]))
         return
 ~~~
-
+![](https://storage.googleapis.com/zenn-user-upload/39102706c8e1-20220312.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
+![](https://storage.googleapis.com/zenn-user-upload/5bafb40df6d2-20220312.png)
+
 この状態で、Viewportの左側のPLAYボタンを押すと、Jetbotが円を描きながら移動します。
+![](https://storage.googleapis.com/zenn-user-upload/24f2559ed588-20220312.png)
 
 ## 2.2 Available Controllersの使用
 
@@ -140,8 +147,10 @@ class HelloWorld(BaseSample):
                                                                      goal_position=np.array([80, 80])))
         return
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/2f1d3297a431-20220312.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、Jetbotが回転し、直進します。
+![](https://storage.googleapis.com/zenn-user-upload/cb424f6fbb20-20220312.png)
