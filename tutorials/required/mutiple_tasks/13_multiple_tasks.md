@@ -193,11 +193,13 @@ class HelloWorld(BaseSample):
             self._world.pause()
         return
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/1629758d262d-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、JetbotがCubeを移動し、FrankaがPickします。
+![](https://storage.googleapis.com/zenn-user-upload/3f452b75739a-20220319.png)
 
 ## 2.2 複数タスクの実行
 
@@ -359,8 +361,11 @@ class HelloWorld(BaseSample):
         self._cube_names = []
         return
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/e0257330e52f-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、JetbotがCubeを移動し、FrankaがPickするtaskが3つ分実行されます。
+![](https://storage.googleapis.com/zenn-user-upload/05fcba5ac447-20220319.png)
+![](https://storage.googleapis.com/zenn-user-upload/3a25d2c6051f-20220319.png)

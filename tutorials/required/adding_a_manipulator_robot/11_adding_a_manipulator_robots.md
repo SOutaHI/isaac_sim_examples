@@ -77,11 +77,11 @@ class HelloWorld(BaseSample):
         )
         return
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/a9c10af1571c-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
-
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
-
+![](https://storage.googleapis.com/zenn-user-upload/4c938091ebd4-20220319.png)
 
 ## 2.2 PickAndPlace Controllerの追加
 
@@ -148,11 +148,14 @@ class HelloWorld(BaseSample):
             self._world.pause()
         return
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/b93bed7e1efc-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、FrankatがCubeをPickし、Goal PositionにPlaceします。
+![](https://storage.googleapis.com/zenn-user-upload/31dfaf3a9357-20220319.png)
+![](https://storage.googleapis.com/zenn-user-upload/4f56456bc684-20220319.png)
 
 ## 2.3 Taskクラスの使用
 
@@ -249,11 +252,13 @@ class HelloWorld(BaseSample):
             self._world.pause()
         return
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/7f01fbd0da9d-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、FrankatがCubeをPickし、Goal PositionにPlaceします。
+![](https://storage.googleapis.com/zenn-user-upload/863a5d03b8df-20220319.png)
 
 ## 2.4 PickPlaceクラスの使用
 
@@ -308,8 +313,11 @@ class HelloWorld(BaseSample):
             self._world.pause()
         return
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/b370e2261a35-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、FrankatがCubeをPickし、Goal PositionにPlaceします。
+
+![](https://storage.googleapis.com/zenn-user-upload/743634d0c97b-20220319.png)

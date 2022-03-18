@@ -51,14 +51,69 @@ Jetbotをシーンに追加します。
 hello_world.pyのsetup_sceneメソッドに次の処理を追加します。
 
 ~~~ hello_world.py:Python3
+from omni.isaac.examples.base_sample import BaseSample
+from omni.isaac.franka.tasks import PickPlace
+from omni.isaac.jetbot import Jetbot
+from omni.isaac.core.tasks import BaseTask
+import numpy as np
 
+class RobotsPlaying(BaseTask):
+    def __init__(
+        self,
+        name
+    ):
+        super().__init__(name=name, offset=None)
+        self._jetbot_goal_position = np.array([130, 30, 0])
+        self._pick_place_task = PickPlace(cube_initial_position=np.array([10, 30, 5]),
+                                        target_position=np.array([70, -30, 5.15 / 2.0]))
+        return
+
+    def set_up_scene(self, scene):
+        super().set_up_scene(scene)
+        self._pick_place_task.set_up_scene(scene)
+        self._jetbot = scene.add(Jetbot(prim_path="/World/Fancy_Jetbot",
+                                        name="fancy_jetbot",
+                                        position=np.array([0, 30, 0])))
+        pick_place_params = self._pick_place_task.get_params()
+        self._franka = scene.get_object(pick_place_params["robot_name"]["value"])
+        self._franka.set_world_pose(position=np.array([100, 0, 0]))
+        self._franka.set_default_state(position=np.array([100, 0, 0]))
+        return
+
+    def get_observations(self):
+        current_jetbot_position, current_jetbot_orientation = self._jetbot.get_world_pose()
+        observations= {
+            self._jetbot.name: {
+                "position": current_jetbot_position,
+                "orientation": current_jetbot_orientation,
+                "goal_position": self._jetbot_goal_position
+            }
+        }
+        return observations
+
+    def get_params(self):
+        pick_place_params = self._pick_place_task.get_params()
+        params_representation = pick_place_params
+        params_representation["jetbot_name"] = {"value": self._jetbot.name, "modifiable": False}
+        params_representation["franka_name"] = pick_place_params["robot_name"]
+        return params_representation
+
+
+class HelloWorld(BaseSample):
+    def __init__(self) -> None:
+        super().__init__()
+        return
+
+    def setup_scene(self):
+        world = self.get_world()
+        world.add_task(RobotsPlaying(name="awesome_task"))
+        return
 ~~~
-
+![](https://storage.googleapis.com/zenn-user-upload/9fb9dc62cd3b-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
-
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
-
+![](https://storage.googleapis.com/zenn-user-upload/c2055e2a5bbc-20220319.png)
 
 ## 2.2 Jetbotを用いてCubeを移動させる
 
@@ -152,12 +207,13 @@ class HelloWorld(BaseSample):
                 goal_position=current_observations[self._jetbot.name]["goal_position"]))
         return
 ~~~
-
+![](https://storage.googleapis.com/zenn-user-upload/36fe758c1097-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、JetbotがCubeを指定の位置に移動させます。
+![](https://storage.googleapis.com/zenn-user-upload/b2fecb132c6f-20220319.png)
 
 ## 2.3 Jetbotを元の位置に戻す処理を追加する
 
@@ -277,13 +333,13 @@ class HelloWorld(BaseSample):
             self._jetbot.apply_wheel_actions(ArticulationAction(joint_velocities=[0.0, 0.0]))
         return
 ~~~
-
+![](https://storage.googleapis.com/zenn-user-upload/bf175cb978c4-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、JetbotがCubeを移動させた後、最初の位置に戻ります。
-
+![](https://storage.googleapis.com/zenn-user-upload/d98d1f5784b3-20220319.png)
 
 ## 2.4 FrankaでCubeをPickする
 
@@ -413,10 +469,10 @@ class HelloWorld(BaseSample):
             self._world.pause()
         return
 ~~~
-
+![](https://storage.googleapis.com/zenn-user-upload/4796b9c36502-20220319.png)
 
 追加後、Ctrl＋Saveとhot reloadが実行されます。
 
 メニューバーのIsaac Examples > Awesome Exampleを選択し、Loadを選択すると、ソースコードの変更部分が反映された状態で表示されます。
 この状態で、Viewportの左側のPLAYボタンを押すと、JetbotがCubeを移動し、FrankaがPickします。
-
+![](https://storage.googleapis.com/zenn-user-upload/d3953e628894-20220319.png)
