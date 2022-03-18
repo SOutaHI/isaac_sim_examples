@@ -30,11 +30,11 @@ A repository for managing own scene files of  Issac Sim.
 - [10. Adding a Controller](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/required/adding_controller)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/adding_controller/10_adding_controller.md) in japanese.
 
-- [11. Adding a manipulator robot](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/required/adding_a_manipulator_robot)
+- [11. Adding a manipulator robot](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/adding_a_manipulator_robot/11_adding_a_manipulator_robots.md)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/adding_a_manipulator_robot/11_adding_a_manipulator_robot.md) in japanese.
 
 - [12. Adding a multiple robots](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/required/adding_multiple_robots)
-    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/adding_multiple_robots/11_adding_mutiple_robots.md) in japanese.
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/adding_multiple_robots/12_adding_multiple_robots.md) in japanese.
 
 - [13. multiple tasks](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/required/mutiple_tasks)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/mutiple_tasks/13_multiple_tasks.md) in japanese.
