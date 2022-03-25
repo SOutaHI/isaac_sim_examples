@@ -39,4 +39,9 @@ A repository for managing own scene files of  Issac Sim.
 - [13. multiple tasks](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/required/mutiple_tasks)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/required/mutiple_tasks/13_multiple_tasks.md) in japanese.
 
+### advanced
+- [14. using input devices](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/using_input_devices_keyboard)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/using_input_devices_keyboard/14_using_input_devices_keyboard.md) in japanese.
 
+- [15. using sensor lidar](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/using_sensors_lidar)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/using_sensors_lidar/15_using_sensor_lidar.md) in japanese.

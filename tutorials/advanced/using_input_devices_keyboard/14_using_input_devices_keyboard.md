@@ -32,31 +32,18 @@ JetbotのExampleとして、キーボードからの入力により、Jetbotの�
 
 ### 1.2 Jetbot Keyboardのソースコードを表示
 メニューバーのIsaac Examples > Input Devices > Jetbot Keyboardを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/89320173039b-20220326.png)
 
 次に、Jetbot keyboardのウィンドウの右上にある3つのボタンの内、一番左側のOpen Source Codeボタンを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/801941a678dd-20220326.png)
 
 選択すると、がVScodeが開き、Jetbot keyboardのソースコードが表示されます。
+![](https://storage.googleapis.com/zenn-user-upload/dcdce3903994-20220326.png)
 
-ソースコードの内容は次の通りです。
-
-~~~ Jetbot_keyboard.py:Python3
-
-~~~
-
-
-
-## 2. taskをパラメタライズする 
-vscode上で、hello_world.pyを編集します。
-
-## 2.1 offsetパラメータの追加
-Offsetパラメータを追加し、タスクのアセットをオフセット分だけ移動させます。
-hello_world.pyを次の様に編集します。
-
-~~~ hello_world.py:Python3
-
-~~~
 
 Loadを選択すると、Jetbotが表示されます。
+![](https://storage.googleapis.com/zenn-user-upload/69467fd54fd3-20220326.png)
+
 この状態で、Viewportの左側のPLAYボタンを押すと、Keyboardからの入力を受け付け、Jetbotが移動します。
 
 - W: 前進 
@@ -64,4 +51,5 @@ Loadを選択すると、Jetbotが表示されます。
 - A: 左旋回
 - D: 右旋回
 
+![](https://storage.googleapis.com/zenn-user-upload/f13994d0b055-20220326.png)
 

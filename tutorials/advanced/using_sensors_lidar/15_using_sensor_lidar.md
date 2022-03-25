@@ -41,14 +41,11 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_advanced_ra
 メニューバーのCreate ＞ Physics > Phisics Sceneを選択します。
 ![](https://storage.googleapis.com/zenn-user-upload/7e39de2cccd2-20220219.png)
 
-シーン作成後、右側にあるStageの中で、作成した”Phisical Scene”を選択します。
-![](https://storage.googleapis.com/zenn-user-upload/c0a0213b9256-20220219.png)
-
 
 ### 1.3 LIDARの追加
 作成したシーン内に、LIDARを追加します。
 メニューバーのCreate > Isaac > Sensors > LIDAR > Rotatingを選択します。
-
+![](https://storage.googleapis.com/zenn-user-upload/94714909207a-20220326.png)
 
 ## 1.4 LIDARの設定
 追加したLIDARのプロパティを調整します。
@@ -58,9 +55,11 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_advanced_ra
 - Raw USD Propertiesの”drawLines”にチェックを入れ、enableにする
 - Raw USD Propertiesの"rotationRate"を1.0にする
 
-この状態で、Viewportの左側のPLAYボタンを押すと、LIDARが回転します。
+![](https://storage.googleapis.com/zenn-user-upload/67fc7c33703c-20220326.png)
 
+この状態で、Viewportの左側のPLAYボタンを押すと、LIDARが回転します。
 また、Raw USD Propertiesの"rotationRate"を0.0にすると、全方向にLIDARのレーザが出力される状態になります。
+![](https://storage.googleapis.com/zenn-user-upload/cbea74eb4479-20220326.png)
 
 ### 1.5 オブジェクトの追加
 
@@ -69,6 +68,7 @@ LIDARセンサは、シーン内に存在するオブジェクトの内、Collis
 まず、シーンにCubeを追加します。
 
 メニューバーのCreate > Mesh > Cubeを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/f7b2b66b610f-20220326.png)
 
 右側にあるStageの中で、追加したCubeを選択します。
 選択した状態で、右下にあるPropertyの中から、次の値を変更します。
@@ -76,19 +76,20 @@ LIDARセンサは、シーン内に存在するオブジェクトの内、Collis
 - TransformのtranslateのXを200にする
 - TransformのtranslateのYを0にする
 - TransformのtranslateのZを0にする
+![](https://storage.googleapis.com/zenn-user-upload/65af864018ca-20220326.png)
 
 右下のPropertyの”＋Add”をクリックし、Physics > Colliderを選択します。
 選択すると、オブジェクトにCollisionのプロパティが追加されます。
-
+![](https://storage.googleapis.com/zenn-user-upload/0fc80c4f8cad-20220326.png)
 
 この状態で、Viewportの左側のPLAYボタンを押すと、CubeにLIDARのレーザが照射された状態になります。
-
+![](https://storage.googleapis.com/zenn-user-upload/93749679a217-20220326.png)
 
 ### 1.6 オブジェクトにLIDARをアタッチする
 
 CylinderにLIADRをアタッチします。
-
-メニューバーのCreate > Mesh > Cylinderを選択します。
+Viewport内で右クリックし、Create > Mesh > Cylinderを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/0f005f96a8b3-20220326.png)
 
 右側にあるStageの中で、追加したCylinderを選択します。
 選択した状態で、右下にあるPropertyの中から、次の値を変更します。
@@ -96,49 +97,51 @@ CylinderにLIADRをアタッチします。
 - TransformのtranslateのXを0にする
 - TransformのtranslateのYを0にする
 - TransformのtranslateのZを0にする
+![](https://storage.googleapis.com/zenn-user-upload/41b71db7a155-20220326.png)
 
 右側のStageタブの中で、LIDARを選択し、Cylinderの下にドラッグアンドドロップで移動させます。
-次に、CylindarとLIDARの相対位置を変更します。
+![](https://storage.googleapis.com/zenn-user-upload/6fd1f5eae47f-20220326.png)
 
+次に、CylindarとLIDARの相対位置を変更します。
 右側にあるStageの中で、LIDARを選択します。
 選択した状態で、右下にあるPropertyの中から、次の値を変更します。
 
 - TransformのtranslateのXを50にする
 - TransformのtranslateのYを50にする
 - TransformのtranslateのZを0にする
+![](https://storage.googleapis.com/zenn-user-upload/f57bad721e33-20220326.png)
 
 この状態で、Viewportの左側のPLAYボタンを押し、Cylindarを移動させると、相対位置を保ったままLIDARも移動します。
-
+![](https://storage.googleapis.com/zenn-user-upload/67d399dab57b-20220326.png)
 
 ### 1.7 ロボットにLIDARをアタッチする
 前項と同じ手順でロボットにLIDARをアタッチします。
 今回は、CarterのExampleを使用し、CarterにLIDARをアタッチします。
-
-メニューバーのIsaac Examples > Robot > Carter URDFを選択します。
-
+メニューバーのIsaac Examples > Import Robots > Carter URDFを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/980068d14d51-20220326.png)
 
 メニューバーのCreate > Isaac > Sensors > LIDAR > Rotatingを選択します
+![](https://storage.googleapis.com/zenn-user-upload/b99f5e8b2ebe-20220326.png)
 
 右側のStageタブの中で、LIDARを選択し、/carter/chassis_linkrの下にドラッグアンドドロップで移動させます。
+![](https://storage.googleapis.com/zenn-user-upload/5fd92231952c-20220326.png)
 
 右側にあるStageの中で、LIDARを選択します。
 選択した状態で、右下にあるPropertyの中から、次の値を変更します。
 
 - Raw USD Propertiesの”drawLines”にチェックを入れ、enableにする
 - Raw USD Propertiesの"rotationRate"を0.0にする
-
+![](https://storage.googleapis.com/zenn-user-upload/716780c42693-20220326.png)
 
 この状態で、Viewportの左側のPLAYボタンを押し、Carterが移動し、LIDARはレーザを照射します。
-
+![](https://storage.googleapis.com/zenn-user-upload/305eda1ccd4f-20220326.png)
 
 ## 2. LIDARの追加（Python API）
-
 ## 2.1 LIADRの追加
 Python APIから、LIDARを使用します。
-
 メニューバーのFile > Newを選択します。
-
 次に、メニューバーのWindow > Script Editorを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/721ac8a15424-20220326.png)
 
 Script Editorに次の内容を記述します。
 
@@ -195,7 +198,7 @@ asyncio.ensure_future(get_lidar_param())
 ~~~
 
 記述後、Ctrl+Enterを押すとScriptが実行され、シーン内にLIADRが追加されます。
-
+![](https://storage.googleapis.com/zenn-user-upload/9596fa9432ef-20220326.png)
 
 ## 2.2 PointCloudのSegmentaiton
 Depthデータにsematinc labelを追加し、segmentationの結果をPointCloudとして表示させることが可能です。
@@ -260,12 +263,9 @@ async def get_lidar_param():
     print("Point Cloud", pointcloud)
     print("Semantic ID", semantics)
 
-timeline.play()                                                 # Start the Simulation
-asyncio.ensure_future(get_lidar_param())                        # Only ask for data after sweep is complete
-
-
+timeline.play()                                                 
+asyncio.ensure_future(get_lidar_param())                        
 ~~~
-
 記述後、Ctrl+Enterを押すとScriptが実行され、Cubeの表面にPointCloudが表示されます。
 
-
+![](https://storage.googleapis.com/zenn-user-upload/2047832632a4-20220326.png)
