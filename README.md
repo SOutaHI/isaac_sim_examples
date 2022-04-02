@@ -51,3 +51,20 @@ A repository for managing own scene files of  Issac Sim.
 
 - [17. occupacy map generation](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/occupancy_map_generation)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/occupancy_map_generation/17_occupacy_map_generation.md) in japanese.
+
+- [18. jupyter notebook]()
+    - exist [article]() in japanese.
+
+### Replication
+
+- [19. applying and visualizing semantic data]()
+    - exist [article]() in japanese.
+
+- [20. recording synthetic data]()
+    - exist [article]() in japanese.
+
+- [21. visualize synthetic data]()
+    - exist [article]() in japanese.
+
+- [22. offline dataset generation]()
+    - exist [article]() in japanese.
