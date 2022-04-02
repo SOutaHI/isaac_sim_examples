@@ -1,4 +1,3 @@
-
 # 概要
 シミュレーション内で2DのOccupacy Mapを作成します。
 
@@ -45,31 +44,37 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_advanced_ra
 ### 1.3 Warehouse環境のロード
 Warehouseの環境をシーン内にロードします。
 メニューバーのCreate -> Isaac -> Environments -> Warehouse Multiple Shelvesを選択します。
-
+![](https://storage.googleapis.com/zenn-user-upload/765eb7855451-20220402.png)
+![](https://storage.googleapis.com/zenn-user-upload/aa38728cdce9-20220402.png)
 
 ### 1.3 Occupacy Mapの作成
 まず、Occupacy Map Generatorをロードします。
 メニューバーのIsaac Utils -> Occupacy Mapを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/b47316f3f731-20220402.png)
+![](https://storage.googleapis.com/zenn-user-upload/036df16c0010-20220402.png)
 
 Viewportの下にあるOccupacy Map ExtensionのOriginの値を次の値に設定します。
 
 - OriginのXを200にする
 - OriginのYを0にする
 - OriginのZを120にする
+![](https://storage.googleapis.com/zenn-user-upload/77ba907ffb53-20220402.png)
 
 Viwport内に２DのGridが作成されることを確認します。
+![](https://storage.googleapis.com/zenn-user-upload/7cba50748d17-20220402.png)
 
 次に、右側にあるStageの中で、ロードしたWarehouseを選択します。
 この状態で、Viewportの下にあるOccupacy Map Extensionの”BOUND SELECTION”を選択します。
+![](https://storage.googleapis.com/zenn-user-upload/95bb369af3f6-20220402.png)
 
 Viewportの下にあるOccupacy MapのUpper Boundの値を次の値に設定します。
 
 - Upper BoundのZを300にする
-
+![](https://storage.googleapis.com/zenn-user-upload/34c25d4d9dba-20220402.png)
 
 Occupacy Map Extensionの”CALCULATE” > "VISUALIZE IMAGE"を選択します。
 選択すると、2DのOccupacy Mapが表示されます。
-
+![](https://storage.googleapis.com/zenn-user-upload/3eeb76370eaf-20220402.png)
 
 
 
