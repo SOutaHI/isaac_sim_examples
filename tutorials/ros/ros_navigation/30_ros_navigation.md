@@ -1,8 +1,8 @@
 # 概要
-Offlineで学習用のデータセットを作成します。
+Isaac Sim上でSceneとRobotを配置し、ROS Nvigation Stackを用いてRobotを動かします。
 
 Issac Simのtutorialに上記の内容が記載されており、この内容に沿って進めます。
-https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html
+https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros_navigation.html
 
 # 実行環境
 
@@ -22,52 +22,87 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_
 
 
 # 手順
-ランダムなシーンを作成し、シーンにおける合成データを連続して保存します。
+Isaac Sim上でSceneとRobotを配置し、ROS Nvigation Stackを用いてRobotを動かします。
+まず、ROS Nvigation Stack上で使用するOccupacy MapをIssac Sim上で作成します。
+作成したOccupacy Mapを用いて、Navigationを実行します。
 
-1. Exampleコードの実行
-2. 保存したデータの確認
+1. ROS Navigationのインストール
+2. Occupacy Mapの生成
+3. Navigationの実行
 
-## 1. Exampleコードの実行
-### 1.1 Exampleコードを実行する
+## 1. ROS Navigationのインストール
+### 1.1 ROS Navigationをインストールする
 terminalで次のコマンドを実行します。
 
 ~~~ bash:shell
-$ cd ~/.local/share/ov/pkg/isaac
-$ ./python.sh standalone_examples/replicator/offline_generation.py --scenario omniverse://localhost/Isaac/Samples/Synthetic_Data/Stage/warehouse_with_sensors.usd --num_frames 10 --max_queue_size 500
+$ sudo apt-get install -y ros-noetic-navigation
 ~~~
 
-offline_generation.pyの詳細は次のURLにから確認することが可能です（説明は追記します）。
-https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html#loading-the-environment
+## 2. Occupacy Mapの生成
+### 2.1 OmniverseからIssac Simを起動する
+![](https://storage.googleapis.com/zenn-user-upload/a1927915e055-20220213.png)
+
+### 2.2 シーンをロードする
+メニューバーのIsaac Examples > ROS > Navigation > warehouseを選択します。
+
+この状態で、Viewportの左側のPLAYボタンを押します。
+
+viewportのカメラアイコンをクリックし、carter_camera_stereo_leftを選択します。
+また、ドロップダウンしたメニューの中から”Top”を選択します。
+
+### 2.3 Occupacy Mapを生成する
+メニューバーのIsaac Utils > Occupancy Mapを選択します。
+
+ポップアップしたWindowをViwport下部にあるConsoleの右隣にドラッグし、追加します。
+
+Occupacy Mapの設定を次の通りに変更します。
+
+- originのXを0.0にする
+- originのYを0.0にする
+- originのZを0.0にする
+- Lower BpundのZを10.0にする
+- Upprer BoundのZを62.0にする
 
 
-### 2.2 保存したデータの確認
-メニューバーの　をクリックします。
+右側のStage上で、warehouse_with_forkliftsを選択します。
 
-ポップアップした”Synthetic Data Recoder”のWindowをstage下部のPropertyの右隣に追加します。
-
-”Synthetic Data Recoder”の”Viewport: Sensor Settings”の中のすべての欄にチェックを入れます。
+この状態で、Occupacy Mapの”BOUND SELECTION”をクリックします。
+クリックすると、map parametersがwarehouse_with_forkliftsに合うようにアップデートされます。
 
 
-左側のツールバーのPLAYボタンを押し、Viewportに表示されるシーンが切り替わることを確認します。
+次に、Occupacy Mapの”CALCULATE” > "VISUALIZE IMAG"をクリックします。
 
-この状態で、”Synthetic Data Recoder”の”Start Recording”をクリックします。
+表示されたOccupacy MapのWindowの中で次の設定を変更します。
 
-10sec程度経過した後、”Synthetic Data Recoder”の”Stop Recording”をクリックします。
+- rotationを180にする
+- Coordinate Typeを”ROS Occupancy Map Parameters File (YAML)”にする
 
-### 2.3 保存したデータを確認する
-保存されたデータを確認します。
-terminalを開き、次のコマンドを入力します。
+設定後、Occupacy Mapの”RE-GENERATE IMAGE”を選択する。
+
+
+生成したImage（Occupacy Map）を保存します。
+Imageの保存名は”carter_warehouse_navigation.png”に設定します。
+
+この状態で、Viewportの左側のSTOPボタンを押します。
+
+
+## 3. Navigationの実行
+### 3.1 シーンをロードする
+メニューバーのIsaac Examples > ROS > Navigation > warehouseを選択します。
+
+新たにterminalを開き、roscoreを起動します。
+
+この状態で、Viewportの左側のPLAYボタンを押します。
+
+### 3.2 NavigationのLaunchを実行する
+
+新たにterminalを開き、次のコマンドを入力します
 
 ~~~ bash:shell
-$ cd /home/"user名"/output/Viewport/
-$ nautlius ./ &
+$ cd ~/.local/share/ov/pkg/isaac_sim_2(version)/ros_workspace/
+$ source devel/setup.bash
+$ roslaunch carter_2dnav carter_navigation.launch
 ~~~
 
-実行すると、保存先ディレクトリが表示されます。
-各ディレクトリの中のデータを開き、撮影されたデータが存在することを確認します。
-
-
-
-
-
+rviz上で、2D Nav Goalを使用すると、ロボットが動くことが確認できます。
 
