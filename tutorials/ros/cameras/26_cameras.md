@@ -29,6 +29,10 @@ Isaac Sim上でTurtlebot3のURDFをロードし、ROSのTopicから車輪の速�
 3. Topicの確認
 
 ## 1. シーンのロード
+### 1.1 OmniverseからIssac Simを起動する
+![](https://storage.googleapis.com/zenn-user-upload/a1927915e055-20220213.png)
+
+### 1.2 シーンをロードする
 Isaac Simの下部にあるContentの中から、Isaac > Samples > ROS > Scenario > simple_room_apriltag.usd.をダブルクリックします。
 
 ## 2. ROS Cameraの追加

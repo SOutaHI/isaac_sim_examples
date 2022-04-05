@@ -1,8 +1,8 @@
 # 概要
-Offlineで学習用のデータセットを作成します。
+Isaac Sim上に配置したApril Tagsをros topicとして発行し, detectionの処理を実行します。
 
 Issac Simのtutorialに上記の内容が記載されており、この内容に沿って進めます。
-https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html
+https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros_apriltag.html
 
 # 実行環境
 
@@ -22,50 +22,51 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_
 
 
 # 手順
-ランダムなシーンを作成し、シーンにおける合成データを連続して保存します。
+Isaac Sim上に配置したApril Tagsをros topicとして発行し, detectionの処理を実行します。
+detectionの処理はros側で実行します。
 
-1. Exampleコードの実行
-2. 保存したデータの確認
+1. シーンのロード
+2. detection処理の実行
+3. Topicの確認
 
-## 1. Exampleコードの実行
-### 1.1 Exampleコードを実行する
-terminalで次のコマンドを実行します。
+## 1. シーンのロード
+### 1.1 OmniverseからIssac Simを起動する
+![](https://storage.googleapis.com/zenn-user-upload/a1927915e055-20220213.png)
 
-~~~ bash:shell
-$ cd ~/.local/share/ov/pkg/isaac
-$ ./python.sh standalone_examples/replicator/offline_generation.py --scenario omniverse://localhost/Isaac/Samples/Synthetic_Data/Stage/warehouse_with_sensors.usd --num_frames 10 --max_queue_size 500
-~~~
+### 1.2 シーンをロードする
+メニューバーのIsaac Examples > ROS > April Tagを選択します。
 
-offline_generation.pyの詳細は次のURLにから確認することが可能です（説明は追記します）。
-https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html#loading-the-environment
+新たにterminalを開き、roscoreを起動します。
 
-
-### 2.2 保存したデータの確認
-メニューバーの　をクリックします。
-
-ポップアップした”Synthetic Data Recoder”のWindowをstage下部のPropertyの右隣に追加します。
-
-”Synthetic Data Recoder”の”Viewport: Sensor Settings”の中のすべての欄にチェックを入れます。
+この状態で、Viewportの左側のPLAYボタンを押すと、各種topicが発行されます。
 
 
-左側のツールバーのPLAYボタンを押し、Viewportに表示されるシーンが切り替わることを確認します。
+## 2. detection処理の実行
+### 2.1 detection用のLaunchを実行する
 
-この状態で、”Synthetic Data Recoder”の”Start Recording”をクリックします。
-
-10sec程度経過した後、”Synthetic Data Recoder”の”Stop Recording”をクリックします。
-
-### 2.3 保存したデータを確認する
-保存されたデータを確認します。
-terminalを開き、次のコマンドを入力します。
+また、新たにterminalを開き、次のコマンドを入力します。
 
 ~~~ bash:shell
-$ cd /home/"user名"/output/Viewport/
-$ nautlius ./ &
+$ cd ~/.local/share/ov/pkg/isaac_sim_2(version)/ros_workspace/
+$ cd ./src
+$ git clone https://github.com/AprilRobotics/apriltag.git   
+$ git clone https://github.com/AprilRobotics/apriltag_ros.git 
+$ caktin b
+$ source devel/setup.bash
+$ roslaunch isaac_tutorials apriltag_continuous_detection.launch
 ~~~
 
-実行すると、保存先ディレクトリが表示されます。
-各ディレクトリの中のデータを開き、撮影されたデータが存在することを確認します。
 
+## 3. Topicの確認
+Detectionの結果をRviz上で確認します。
+新たにterminalを開き、次のコマンドを入力します。
+
+~~~ bash:shell
+$ cd ~/.local/share/ov/pkg/isaac_sim_2(version)/ros_workspace/
+$ rviz -d src/isaac_tutorials/rviz/apriltag_config.rviz
+~~~
+
+Detectionされていることが確認できます。
 
 
 

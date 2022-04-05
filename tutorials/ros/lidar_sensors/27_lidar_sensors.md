@@ -31,6 +31,10 @@ Isaac Sim上に配置したLiDARからのlazer_scanをros topicとして発行�
 3. Topicの確認
 
 ## 1. シーンのロード
+### 1.1 OmniverseからIssac Simを起動する
+![](https://storage.googleapis.com/zenn-user-upload/a1927915e055-20220213.png)
+
+### 1.2 シーンをロードする
 Isaac Simの下部にあるContentの中から、”ダウンロードしたディレクトリ” > simple_room_apriltag_with_camera.usdをダブルクリックします。
 
 ## 2. ROS LiDARの追加
