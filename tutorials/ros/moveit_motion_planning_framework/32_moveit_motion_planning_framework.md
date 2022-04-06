@@ -1,8 +1,8 @@
 # 概要
-Offlineで学習用のデータセットを作成します。
+Isaac Sim上でFrankaを配置し、Moveitを用いてRobotを動かします。
 
 Issac Simのtutorialに上記の内容が記載されており、この内容に沿って進めます。
-https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html
+https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_ros_moveit.html
 
 # 実行環境
 
@@ -22,52 +22,88 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_
 
 
 # 手順
-ランダムなシーンを作成し、シーンにおける合成データを連続して保存します。
+Isaac Sim上でFrankaを配置し、Moveitを用いてRobotを動かします。
+moveitはros側から実行し、rviz上でmoveitを使用します。
 
-1. Exampleコードの実行
-2. 保存したデータの確認
+1. moveitのインストール
+2. シーンのロード
+3. moveitの実行
+4. トラブルシューティング
 
-## 1. Exampleコードの実行
-### 1.1 Exampleコードを実行する
+## 1. moveitのインストール
+### 1.1 moveitをインストールする
 terminalで次のコマンドを実行します。
 
 ~~~ bash:shell
-$ cd ~/.local/share/ov/pkg/isaac
-$ ./python.sh standalone_examples/replicator/offline_generation.py --scenario omniverse://localhost/Isaac/Samples/Synthetic_Data/Stage/warehouse_with_sensors.usd --num_frames 10 --max_queue_size 500
+$ sudo apt-get install -y ros-noetic-moveit
 ~~~
 
-offline_generation.pyの詳細は次のURLにから確認することが可能です（説明は追記します）。
-https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html#loading-the-environment
+## 2. シーンのロード
+### 2.1 OmniverseからIssac Simを起動する
+![](https://storage.googleapis.com/zenn-user-upload/a1927915e055-20220213.png)
+
+### 2.2 シーンをロードする
+メニューバーのIsaac Examples > ROS > MoveItを選択します。
+
+この状態で、Viewportの左側のPLAYボタンを押します。
 
 
-### 2.2 保存したデータの確認
-メニューバーの　をクリックします。
+## 3. moveitの実行
 
-ポップアップした”Synthetic Data Recoder”のWindowをstage下部のPropertyの右隣に追加します。
-
-”Synthetic Data Recoder”の”Viewport: Sensor Settings”の中のすべての欄にチェックを入れます。
-
-
-左側のツールバーのPLAYボタンを押し、Viewportに表示されるシーンが切り替わることを確認します。
-
-この状態で、”Synthetic Data Recoder”の”Start Recording”をクリックします。
-
-10sec程度経過した後、”Synthetic Data Recoder”の”Stop Recording”をクリックします。
-
-### 2.3 保存したデータを確認する
-保存されたデータを確認します。
-terminalを開き、次のコマンドを入力します。
+新たにterminalを開き、次のコマンドを入力します
 
 ~~~ bash:shell
-$ cd /home/"user名"/output/Viewport/
-$ nautlius ./ &
+$ cd ~/.local/share/ov/pkg/isaac_sim_(version)/ros_workspace/
+$ source devel/setup.bash
+$ roslaunch isaac_moveit franka_isaac_execution.launch
 ~~~
 
-実行すると、保存先ディレクトリが表示されます。
-各ディレクトリの中のデータを開き、撮影されたデータが存在することを確認します。
+最後のコマンドを実行すると、rvizが立ち上がります。
 
 
+rviz上で、左側にある”ADD”をクリックし、ポップアップしたWindowの中から”MotionPlaning”を選択します。
+
+rviz上で、左下にある”MotionPlanning”の”PlanningGroup”を”panda_arm”に変更します。
+
+rviz上でArmの姿勢を変更し、”MotionPlanning”のPlan > Executeを選択すると、Isaac Sim上で動作することを確認できます。
 
 
+## トラブルシューティング
+
+次のコマンドを実行する際にエラーが発生し、実行できないことがありました。
+
+~~~ bash:shell
+$ roslaunch isaac_moveit franka_isaac_execution.launch
+~~~
+
+エラー内容は次の通りです。
+
+このエラーはFrankaのPackageに含まれているlaunchのエラーであり、[該当launchファイル](https://answers.ros.org/question/384900/failed-to-lunch-this-command/
+https://github.com/ros-planning/panda_moveit_config/blob/noetic-devel/launch/planning_context.launch})のエラー箇所を修正することで解決できました。
+
+こちらを参考にしました。
+https://answers.ros.org/question/384900/failed-to-lunch-this-command/
 
 
+まず、frankaのpackageをクローンします。
+
+~~~ bash:shell
+$ cd ~/.local/share/ov/pkg/isaac_sim_(version)/ros_workspace/src/
+$ git clone git@github.com:ros-planning/panda_moveit_config.git
+~~~
+
+エディタで該当launchファイルを開き、コードを変更します。
+変更部分は11行目です。元の部分を次の内容に置き換えます。
+
+~~~ xml:xml
+<param if="$(eval arg('load_robot_description') and arg('load_gripper'))" name="$(arg robot_description)" command="$(find xacro)/xacro '$(find franka_description)/robots/panda_arm.urdf.xacro' hand:=true"/>
+~~~
+
+buildすると、実行できるようになります。
+
+~~~ bash:shell
+$ cd ~/.local/share/ov/pkg/isaac_sim_(version)/ros_workspace/
+$ catkin b
+$ source devel/setup.bash
+$ roslaunch isaac_moveit franka_isaac_execution.launch
+~~~
