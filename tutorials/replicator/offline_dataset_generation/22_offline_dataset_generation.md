@@ -32,29 +32,19 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_
 terminalで次のコマンドを実行します。
 
 ~~~ bash:shell
-$ cd ~/.local/share/ov/pkg/isaac
+$ cd ~/.local/share/ov/pkg/isaac_sim.2021.2.1/
 $ ./python.sh standalone_examples/replicator/offline_generation.py --scenario omniverse://localhost/Isaac/Samples/Synthetic_Data/Stage/warehouse_with_sensors.usd --num_frames 10 --max_queue_size 500
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/df41665e123c-20220406.png)
+![](https://storage.googleapis.com/zenn-user-upload/003a4fad037d-20220406.png)
+![](https://storage.googleapis.com/zenn-user-upload/0d3d379be5db-20220406.png)]
 
 offline_generation.pyの詳細は次のURLにから確認することが可能です（説明は追記します）。
 https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html#loading-the-environment
 
 
-### 2.2 保存したデータの確認
-メニューバーの　をクリックします。
-
-ポップアップした”Synthetic Data Recoder”のWindowをstage下部のPropertyの右隣に追加します。
-
-”Synthetic Data Recoder”の”Viewport: Sensor Settings”の中のすべての欄にチェックを入れます。
-
-
-左側のツールバーのPLAYボタンを押し、Viewportに表示されるシーンが切り替わることを確認します。
-
-この状態で、”Synthetic Data Recoder”の”Start Recording”をクリックします。
-
-10sec程度経過した後、”Synthetic Data Recoder”の”Stop Recording”をクリックします。
-
-### 2.3 保存したデータを確認する
+## 2. 保存したデータの確認
+### 2.1 保存したデータを確認する
 保存されたデータを確認します。
 terminalを開き、次のコマンドを入力します。
 
@@ -62,12 +52,11 @@ terminalを開き、次のコマンドを入力します。
 $ cd /home/"user名"/output/Viewport/
 $ nautlius ./ &
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/a38ae2584321-20220406.png)
 
 実行すると、保存先ディレクトリが表示されます。
 各ディレクトリの中のデータを開き、撮影されたデータが存在することを確認します。
-
-
-
+![](https://storage.googleapis.com/zenn-user-upload/e156bce94f87-20220406.png)
 
 
 

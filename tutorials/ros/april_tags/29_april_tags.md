@@ -35,11 +35,13 @@ detectionの処理はros側で実行します。
 
 ### 1.2 シーンをロードする
 メニューバーのIsaac Examples > ROS > April Tagを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/ac7ea9d3e0ec-20220406.png)
+![](https://storage.googleapis.com/zenn-user-upload/b1bc72c9bca0-20220406.png)
 
 新たにterminalを開き、roscoreを起動します。
+![](https://storage.googleapis.com/zenn-user-upload/79954c2c4a9e-20220406.png)
 
 この状態で、Viewportの左側のPLAYボタンを押すと、各種topicが発行されます。
-
 
 ## 2. detection処理の実行
 ### 2.1 detection用のLaunchを実行する
@@ -47,7 +49,7 @@ detectionの処理はros側で実行します。
 また、新たにterminalを開き、次のコマンドを入力します。
 
 ~~~ bash:shell
-$ cd ~/.local/share/ov/pkg/isaac_sim_2(version)/ros_workspace/
+$ cd ~/.local/share/ov/pkg/isaac_sim-2021.2.1/ros_workspace/
 $ cd ./src
 $ git clone https://github.com/AprilRobotics/apriltag.git   
 $ git clone https://github.com/AprilRobotics/apriltag_ros.git 
@@ -55,7 +57,7 @@ $ caktin b
 $ source devel/setup.bash
 $ roslaunch isaac_tutorials apriltag_continuous_detection.launch
 ~~~
-
+![](https://storage.googleapis.com/zenn-user-upload/65c995e1ebeb-20220406.png)
 
 ## 3. Topicの確認
 Detectionの結果をRviz上で確認します。
@@ -65,8 +67,13 @@ Detectionの結果をRviz上で確認します。
 $ cd ~/.local/share/ov/pkg/isaac_sim_2(version)/ros_workspace/
 $ rviz -d src/isaac_tutorials/rviz/apriltag_config.rviz
 ~~~
+![](https://storage.googleapis.com/zenn-user-upload/6b0883a9c126-20220406.png)
 
 Detectionされていることが確認できます。
+![](https://storage.googleapis.com/zenn-user-upload/256840d8f75c-20220406.png)
+
+各種Topicも発行されています。
+![](https://storage.googleapis.com/zenn-user-upload/26d19db89aa2-20220406.png)
 
 
 
