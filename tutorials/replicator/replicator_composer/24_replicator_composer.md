@@ -1,8 +1,8 @@
 # 概要
-<!-- Offlineで学習用のデータセットを作成します。
+Replicator Comporserを用いてデータセットを作成します。
 
 Issac Simのtutorialに上記の内容が記載されており、この内容に沿って進めます。
-https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html -->
+https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_composer.html
 
 # 実行環境
 
@@ -22,52 +22,89 @@ https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_
 
 
 # 手順
-<!-- ランダムなシーンを作成し、シーンにおける合成データを連続して保存します。
+Replicator Composerを用いてデータセットを作成します。
+Replicator Composerでは、Parameter FileとAsset Fileの2つのファイルからシーンを生成します。
+シーンの設定では、Objectの種類や特性、環境の種類や特性をそれぞれ設定するこが可能です。
 
-1. Exampleコードの実行
-2. 保存したデータの確認
+設定値の一覧はこちらのReferenceから確認できます。
+https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/manual_replicator_composer_parameter_list.html#isaac-sim-app-manual-replicator-composer-parameter-list
 
-## 1. Exampleコードの実行
-### 1.1 Exampleコードを実行する
-terminalで次のコマンドを実行します。
+Replicator ComposerのTutorialとして用意されているParameter FileとAsset Fileを用いてデータセットを作成します。
 
-~~~ bash:shell
-$ cd ~/.local/share/ov/pkg/isaac
-$ ./python.sh standalone_examples/replicator/offline_generation.py --scenario omniverse://localhost/Isaac/Samples/Synthetic_Data/Stage/warehouse_with_sensors.usd --num_frames 10 --max_queue_size 500
-~~~
+また、Tutorialには、Launcherから実行する方法とDocker上で実行する方法が記載されています。
+今回はLauncherから実行する方法によってデータセットを作成します。
 
-offline_generation.pyの詳細は次のURLにから確認することが可能です（説明は追記します）。
-https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_offline_generation.html#loading-the-environment
+流れを次に示します。
 
+1. Isaac SimのインストールディレクトリでTerminalを開く
+2. データ生成のコマンドの実行
 
-### 2.2 保存したデータの確認
-メニューバーの　をクリックします。
+## 1. Isaac SimのインストールディレクトリでTerminalを開く
+### 1.1 OmniverseからIsaac Simを起動する
+まず、OmniverseのLauncherからIsaac SimのLauncherを起動します。
+![](https://storage.googleapis.com/zenn-user-upload/76d79bb8e0c2-20220416.png)
 
-ポップアップした”Synthetic Data Recoder”のWindowをstage下部のPropertyの右隣に追加します。
+### 1.2 Isaac SimのインストールディレクトリでTerminalを開く
+次に、Isaac SimのLauncherから”Open in Terminal”を選択します。
+![](https://storage.googleapis.com/zenn-user-upload/55559222f3ed-20220416.png)
+![](https://storage.googleapis.com/zenn-user-upload/e82f87680383-20220416.png)
 
-”Synthetic Data Recoder”の”Viewport: Sensor Settings”の中のすべての欄にチェックを入れます。
-
-
-左側のツールバーのPLAYボタンを押し、Viewportに表示されるシーンが切り替わることを確認します。
-
-この状態で、”Synthetic Data Recoder”の”Start Recording”をクリックします。
-
-10sec程度経過した後、”Synthetic Data Recoder”の”Stop Recording”をクリックします。
-
-### 2.3 保存したデータを確認する
-保存されたデータを確認します。
-terminalを開き、次のコマンドを入力します。
+## 2. データ生成のコマンドの実行
+### 2.1 データ保存先ディレクトリを作成する
+データ保存先ディレクトリを作成します。
+開いたterminalで次のコマンドを実行する
 
 ~~~ bash:shell
-$ cd /home/"user名"/output/Viewport/
-$ nautlius ./ &
+$ mkdir -p ~/workspace/isaac/
 ~~~
 
-実行すると、保存先ディレクトリが表示されます。
-各ディレクトリの中のデータを開き、撮影されたデータが存在することを確認します。 -->
+### 2.2 tool/composer/main.pyを修正する
+自分の環境において、[このコマンド](https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/tutorial_replicator_composer.html#sample-input-parameterizations)を実行すると、エラーが発生しデータを生成することができませんでした。
 
+エラー内容は次の様な内容でした。
 
+こちらについて調べたところ、Isaacのある複数のパッケージはSimulationAppのインスタンスに依存しており、依存しているパッケージはインスタンス生成後にimportしないと、ImportErrorになるという報告がありました。
+https://forums.developer.nvidia.com/t/omni-kit-error-isaac-sim-implementation/204275
 
+そのため、実行ファイルであるtool/composer/main.pyを編集し、先にSimulationAppのインスタンスを生成するように変更しました。
+まず、エディタで該当ファイルを開きます。
 
+~~~ bash:shell
+$ vim tool/composer/main.py
+~~~
+![](https://storage.googleapis.com/zenn-user-upload/e22516d0d11d-20220416.png)
+![](https://storage.googleapis.com/zenn-user-upload/ff6e2ec6c50d-20220416.png)
 
+16行目に次の処理を追加します。
+~~~ Python:Python
+kit = SimulationApp()
+~~~
+
+52行目をコメントアウトします。
+~~~ Python:Python
+#　self.sim_app = SimulationApp(config)kit = SimulationApp()
+~~~
+
+### 2.3 データ生成のコマンドを実行する
+#### 2.3.1 Factory環境におけるデータ生成
+Factory環境でデータを生成するコマンドを実行します。
+
+~~~ bash:shell
+$ ./python.sh tools/composer/src/main.py  --input parameters/warehouse.yaml --output */datasets/warehouse --num-scenes 10 --headless --mount ~/workspace/isaac/
+~~~
+![](https://storage.googleapis.com/zenn-user-upload/c1b32d38b85f-20220416.png)
+
+実行が完了すると/workspace/isaac/datasets/warehouse/にデータが保存されます。
+![](https://storage.googleapis.com/zenn-user-upload/750bebc2bda5-20220416.png)
+![](https://storage.googleapis.com/zenn-user-upload/69c76eba0ad3-20220416.png)
+
+#### 2.3.1  FlyingThings3Dを用いたデータ生成
+ FlyingThings3Dを用いてデータを生成するコマンドを実行します。
+
+~~~ bash:shell
+$ ./python.sh tools/composer/src/main.py  --input parameters/flying_things_3d.yaml --output */datasets/flying_things_3d --num-scenes 10 --headless --mount ~/workspace/isaac/
+~~~
+
+実行が完了すると/workspace/isaac/datasets/flying_things_3d/にデータが保存されます。
+![](https://storage.googleapis.com/zenn-user-upload/a856e68baf1c-20220416.png)
 
