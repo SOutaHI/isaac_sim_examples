@@ -17,10 +17,10 @@ A repository for managing own scene files of  Issac Sim.
     - exist [article](https://github.com/SOutaHI/issac_sim_examples/blob/main/tutorials/gui/add_camera/4_add_camera.usd) in japanese.
 - [5. script editor](https://github.com/SOutaHI/issac_sim_examples/tree/main/tutorials/gui/script_editor)
     - exist [article](https://github.com/SOutaHI/issac_sim_examples/blob/main/tutorials/gui/script_editor/5_script_editor.md) in japanese.
-- [33. save custom usd]()
-    - exist [article]() in japanese.
-- [34. change object texture]()
-    - exist [article]() in japanese.
+- [33. save custom usd](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/gui/save_custom_usd)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/gui/save_custom_usd/33_save_custom_usd.md) in japanese.
+- [34. change object texture](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/gui/change_object_texture)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/gui/change_object_texture/34_change_object_texture.md) in japanese.
    
 
 #### required
