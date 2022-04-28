@@ -61,26 +61,26 @@ https://docs.omniverse.nvidia.com/app_isaacsim/prod_extensions/ext_cad-importer.
 ![](https://storage.googleapis.com/zenn-user-upload/cf71469dc22f-20220426.png)
 
 ポップアップしたWindowにおいて、任意のstpファイルを選択します。
-![](https://storage.googleapis.com/zenn-user-upload/c878cc155da4-20220426.png)
+![](https://storage.googleapis.com/zenn-user-upload/cf6cf2501a85-20220429.png)
 
 選択し、Openをクリックすると、Viewport内にstpファイルに記述されているオブジェクトがインポートされます。
-![](https://storage.googleapis.com/zenn-user-upload/2fa813717ece-20220426.png)
+![](https://storage.googleapis.com/zenn-user-upload/c99086a5150e-20220429.png)
 
 ## 3. オブジェクトの保存（USDファイル）
 ### 3.1 オブジェクトをGropu化する
 右側のStageタブの中で、先ほどインポートしたオブジェクトを選択します。
 選択した状態で、右クリックし、Group Selectedを選択します。
-![](https://storage.googleapis.com/zenn-user-upload/6e662343f255-20220426.png)
+![](https://storage.googleapis.com/zenn-user-upload/d58232f2f56b-20220429.png)
 
 ### 3.2 GroupをUSDファイルとしてエクスポートする
 右側のStageタブの中で、Groupを選択します。
 選択した状態で、右クリックし、Export Selectedを選択します。
-![](https://storage.googleapis.com/zenn-user-upload/b11c84fff273-20220426.png)
 
 ポップアップしたウィンドウにて、任意の保存名と保存先を指定します。
-
+![](https://storage.googleapis.com/zenn-user-upload/3726a2e45d6d-20220429.png)
 
 ### 2.2 保存したUSDファイルをインポートする
-今回はomniverse/localhost/Isaac/Enviroments/Simple_Room/Props/pallet_plastic.usdとして保存しました。
+今回はomniverse/localhost/Isaac/Enviroments/Simple_Room/Props/dog.usdとして保存しました。
 Viwportの下にあるContentの中から、Viewport内に該当のUSDファイルをドラッグアンドドロップすると、USDファイルとして先ほどインポートしたstpファイルがインポートされます。
-![](https://storage.googleapis.com/zenn-user-upload/55a3ee681007-20220426.png)
+![](https://storage.googleapis.com/zenn-user-upload/dc188a905589-20220429.png)
+![](https://storage.googleapis.com/zenn-user-upload/76231f79731a-20220429.png)
