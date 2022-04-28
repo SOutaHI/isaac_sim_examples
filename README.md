@@ -21,6 +21,8 @@ A repository for managing own scene files of  Issac Sim.
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/gui/save_custom_usd/33_save_custom_usd.md) in japanese.
 - [34. change object texture](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/gui/change_object_texture)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/gui/change_object_texture/34_change_object_texture.md) in japanese.
+- [35. cad importer](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/gui/cad_importer)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/gui/cad_importer/35_cad_importer.md) in japanese.
    
 
 #### required
@@ -51,8 +53,11 @@ A repository for managing own scene files of  Issac Sim.
 - [15. using sensor lidar](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/using_sensors_lidar)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/using_sensors_lidar/15_using_sensor_lidar.md) in japanese.
 
-- [16. using sensors generic range sensor](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/using_sensors_generic_range_sensor)
+- [16. using generic range sensor](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/using_sensors_generic_range_sensor)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/using_sensors_generic_range_sensor/16_using_sensor_generic_range_sensor.md) in japanese.
+
+- [36. using contact sensor](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/using_contact_sensor)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/using_contact_sensor/36_using_contact_sensor.md) in japanese.
 
 - [17. occupacy map generation](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/occupancy_map_generation)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/occupancy_map_generation/17_occupacy_map_generation.md) in japanese.
