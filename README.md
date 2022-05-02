@@ -65,6 +65,9 @@ A repository for managing own scene files of  Issac Sim.
 - [18. jupyter notebook](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/jupyter_notebook)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/jupyter_notebook/18_jupyter_notebook.md) in japanese.
 
+- [37. interactive demos]()
+    - exist [article]() in japanese.
+ 
 ### Replication
 
 - [19. applying and visualizing semantic data](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/replicator/applying_and_visualizing_semantic_data)
