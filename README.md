@@ -23,7 +23,11 @@ A repository for managing own scene files of  Issac Sim.
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/gui/change_object_texture/34_change_object_texture.md) in japanese.
 - [35. cad importer](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/gui/cad_importer)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/gui/cad_importer/35_cad_importer.md) in japanese.
-   
+
+- [37. interactive demos](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/gui/intaractive_demos)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/gui/intaractive_demos/37_interactive_demos.md) in japanese.
+
+
 
 #### required
 - [6. required interface](https://github.com/SOutaHI/issac_sim_examples/blob/main/tutorials/required/required_interface/6_required_interface.usd)
@@ -65,12 +69,8 @@ A repository for managing own scene files of  Issac Sim.
 - [18. jupyter notebook](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/jupyter_notebook)
     - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/jupyter_notebook/18_jupyter_notebook.md) in japanese.
 
-- [37. interactive demos]()
-    - exist [article]() in japanese.
-
-- [38. Use Dynamic Control Extension]()
-    - exist [article]() in japanese.
-
+- [38. Use Dynamic Control Extension](https://github.com/SOutaHI/isaac_sim_examples/tree/development/tutorials/advanced/dynamic_control)
+    - exist [article](https://github.com/SOutaHI/isaac_sim_examples/blob/development/tutorials/advanced/dynamic_control/38_dynamic_control.md) in japanese.
 
 
  
