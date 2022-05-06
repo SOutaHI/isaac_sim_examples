@@ -1,4 +1,4 @@
-する# 概要
+# 概要
 Dynamic Control Extensionを使用し、ロボットを動かします。
 
 Issac SimのExtension部分に上記の内容が記載されており、この内容に沿って進めます。
@@ -36,118 +36,97 @@ https://docs.omniverse.nvidia.com/py/isaacsim/source/extensions/omni.isaac.dynam
 3. Joint Controller Exampleの実行
 
 
-
-
-
-
-
-
-
-
-## 1. Leonardoを用いたデモの実行
-このデモでは、マニピュレータがシーン内のトイブロックをスタックするタスクを実行します。
-
+## 1. Script Editorからの実行
 ### 1.1 OmniverseからIssac Simを起動する
 ![](https://storage.googleapis.com/zenn-user-upload/a1927915e055-20220213.png)
 
-### 1.2 シーンをロードする
-メニューバーのIsaac Examples > Demos > Leonardo Demoを選択します。
-![](https://storage.googleapis.com/zenn-user-upload/98726aebe525-20220502.png)
+### 1.2 ロボットをロードする
+メニューバーのcreate > Isaac > Robots > From Library > Manipulators > Frankaを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/9894fb8f0bae-20220507.png)
 
-次にポップアップしたWindowにおいて、”Create Scenario”を選択します。
-選択すると、ロボットが読み込まれます。
-![](https://storage.googleapis.com/zenn-user-upload/511fa644f73f-20220502.png)
-![](https://storage.googleapis.com/zenn-user-upload/6e17150b67df-20220502.png)
+ロボットの読み込みの完了後、右側のツールバーの中のPlayボタンを選択し、シミュレーションを開始します。
+![](https://storage.googleapis.com/zenn-user-upload/22a75b2ba601-20220507.png)
 
-読み込みの完了後、右側のツールバーの中のPlayボタンを選択し、シミュレーションを開始します。
-![](https://storage.googleapis.com/zenn-user-upload/65630663277a-20220502.png)
+### 1.3　Script Editorの起動する
+メニューバーのWindow > Script Editorを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/933af9468939-20220507.png)
 
-### 1.3 デモを実行する
-ポップアップしたウィンドウにおいて、”Perform Task”を選択します。
-選択すると、タスクが実行されます。
-
-![](https://storage.googleapis.com/zenn-user-upload/d086ea9fccca-20220502.png)
-![](https://storage.googleapis.com/zenn-user-upload/64ce7f9439ef-20220502.png)
-
-また、”Togggle Obstacle”を選択し、キューブをシーン内で移動させると、キューブを避けるようにマニピュレータの軌道が計算されます。
-
-## 2. UR10を用いたデモの実行 
-UR10を用いたデモは2つ用意されています。
-一つは、UR10の手先に取り付けられているSuction Gripperでコンテナを持ち、そのコンテナの中ににランダムにオブジェクトを落下させるデモ（Bin fillデモ）です、
-もう一つは、UR10を用いたパレタイジングのデモ（Stack binデモ）です。
-
-### 2.1 Bin fillデモを実行する
-### 2.1.1 シーンをロードする
-メニューバーのIsaac Examples > Demos > UR10 Palletizingを選択します。
-
-次にポップアップしたWindowにおいて、”Selected Scenario”の欄をクリックし、”fill bin”を選択します。
-![](https://storage.googleapis.com/zenn-user-upload/a10cd4783ef4-20220502.png)
-
-選択後、同様のWindowにおいて、”Create Scenario”を選択します。
-選択すると、ロボットが読み込まれます。
-![](https://storage.googleapis.com/zenn-user-upload/f497caede827-20220502.png)
-
-読み込みの完了後、右側のツールバーの中のPlayボタンを選択し、シミュレーションを開始します。
-![](https://storage.googleapis.com/zenn-user-upload/3e7f8cb4fbee-20220502.png)
-
-### 2.1.2 デモを実行する
-ポップアップしたウィンドウにおいて、”Perform Task”を選択します。
-選択すると、タスクが実行されます。
-
-![](https://storage.googleapis.com/zenn-user-upload/5050efefe5aa-20220502.png)
-
-### 2.2 Stack binデモを実行する
-### 2.2.1 シーンをロードする
-メニューバーのIsaac Examples -> Demos -> UR10 Palletizingを選択します。
-
-次にポップアップしたWindowにおいて、”Selected Scenario”の欄をクリックし、”Stack bin”を選択します。
-![](https://storage.googleapis.com/zenn-user-upload/75252f8bc916-20220502.png)
-
-選択後、同様のWindowにおいて、”Create Scenario”を選択します。
-選択すると、ロボットが読み込まれます。
-![](https://storage.googleapis.com/zenn-user-upload/a2af61a652d7-20220502.png)
-
-読み込みの完了後、右側のツールバーの中のPlayボタンを選択し、シミュレーションを開始します。
-![](https://storage.googleapis.com/zenn-user-upload/a39d86881711-20220502.png)
-
-### 2.2.2 デモを実行する
-ポップアップしたウィンドウにおいて、”Perform Task”を選択します。
-選択すると、タスクが実行されます。
-
-![](https://storage.googleapis.com/zenn-user-upload/af7bed8dcec5-20220502.png)
-![](https://storage.googleapis.com/zenn-user-upload/ea03ffc7d42c-20220502.png)
-![](https://storage.googleapis.com/zenn-user-upload/991dd0056e11-20220502.png)
-
-## 3. Navigationデモの実行
-このデモでは、AGVを使用します。
-AGVの目標位置、目標姿勢を登録すると、その位置に向かってAGVが移動します。
-
-### 3.1 シーンをロードする
-メニューバーのIsaac Examples > Demos > Robot Navigationを選択します。
-
-次にポップアップしたWindowにおいて、”Load”を選択します。
-![](https://storage.googleapis.com/zenn-user-upload/784a1ac77a10-20220502.png)
-
-選択すると、ロボットが読み込まれます。
-![](https://storage.googleapis.com/zenn-user-upload/2b6b1a2d7464-20220502.png)
-
-”Robot Type”をCarterに変更すると、Carterがロードされます。
-![](https://storage.googleapis.com/zenn-user-upload/8d81949c7425-20220502.png)
-
-ポップアップしたウィンドウにおいて、”Open Source Code”をクリックすると、ExampleのソースコードがVscode上に展開されます。
-
-読み込みの完了後、右側のツールバーの中のPlayボタンを選択し、シミュレーションを開始します。
+### 1.4 制御器を追加する
+今回は速度制御器を追加します。
+位置制御やトルク制御の例は以下のURLに記載されています。
+https://docs.omniverse.nvidia.com/app_isaacsim/app_isaacsim/ext_omni_isaac_dynamic_control.html#code-snippets
 
 
-### 3.2 デモを実行する
-ポップアップしたウィンドウにおいて、”Move Robot"の”Move”を選択すると、ロボットが前進します。また、"Spin Robot"の”Rotate”を選択すると、ロボットが回転します。
+先ほど起動したScript Editorに以下のコードを追加します。
 
-移動後、”target Pose"に値を入力し、"Move to Target"の”Move”を選択すると、ロボットが設定したTarget poseに移動します。
-![](https://storage.googleapis.com/zenn-user-upload/0fe3e5bdbdf1-20220502.png)
+~~~ script editor:Python3
+import omni
+omni.timeline.get_timeline_interface().play()
 
-Robot TypeをCarterに設定し、ロードした場合でも、同様にNavigationは実行可能です。
-![](https://storage.googleapis.com/zenn-user-upload/bb23521a7e79-20220502.png)
-![](https://storage.googleapis.com/zenn-user-upload/ca2b906076ed-20220502.png)
+from pxr import UsdPhysics
+stage = omni.usd.get_context().get_stage()
+for prim in stage.TraverseAll():
+    prim_type = prim.GetTypeName()
+    if prim_type in ["PhysicsRevoluteJoint" , "PhysicsPrismaticJoint"]:
+        if prim_type == "PhysicsRevoluteJoint":
+            drive = UsdPhysics.DriveAPI.Get(prim, "angular")
+        else:
+            drive = UsdPhysics.DriveAPI.Get(prim, "linear")
+        drive.GetStiffnessAttr().Set(0)
+from omni.isaac.dynamic_control import _dynamic_control
+import numpy as np
+dc = _dynamic_control.acquire_dynamic_control_interface()
+#Note: getting the articulation has to happen after changing the drive stiffness
+articulation = dc.get_articulation("/Franka")
+dc.wake_up_articulation(articulation)
+joint_vels = [-np.random.rand(9)*10]
+dc.set_articulation_dof_velocity_targets(articulation, joint_vels)
+~~~
+
+![](https://storage.googleapis.com/zenn-user-upload/16bd0cc5ccdd-20220507.png)
+
+### 1.5 追加した制御器からロボットを動かす
+script Editor内で、RUNを選択すると、ロボットが動きます。
+
+## 2. Read Articulations Exampleの実行
+このExampleでは、ロボットの各種関節情報を取得することができます。
+
+### 2.1 Exampleをロードする
+メニューバーのIsaac Examples > Dynamic Control > Read Articulationsを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/0b3ee40c73f4-20220507.png)
+![](https://storage.googleapis.com/zenn-user-upload/ba63100146eb-20220507.png)
+
+### 2.2 ロボットをロードする
+ポップアップしたウィンドウにおいて、”Load Robot”を選択します。
+選択すると、ロボットがロードされます。
+![](https://storage.googleapis.com/zenn-user-upload/0da6f5caee11-20220507.png)
+
+ロボットの読み込みの完了後、右側のツールバーの中のPlayボタンを選択し、シミュレーションを開始します
+
+### 2.3 関節情報を取得する
+ポップアップしたウィンドウにおいて、”Get Articulation Information”を選択します。
+選択すると、ロボットの関節情報がポップアップしたウィンドウに表示されます。
+![](https://storage.googleapis.com/zenn-user-upload/1eb2cbea1de1-20220507.png)
+
+## 3. Joint Controller Exampleの実行
+このExampleでは、ロボットを動かしつつ、ロボットの各種関節情報を取得することができます。
+
+### 3.1 Exampleをロードする
+メニューバーのIsaac Examples > Dynamic Control > Joint Controllerを選択します。
+![](https://storage.googleapis.com/zenn-user-upload/54e486b3e932-20220507.png)
+![](https://storage.googleapis.com/zenn-user-upload/40492944a8f8-20220507.png)
+
+### 3.2 ロボットをロードする
+ポップアップしたウィンドウにおいて、”Load Robot”を選択します。
+選択すると、ロボットがロードされます。
+![](https://storage.googleapis.com/zenn-user-upload/5894318a7250-20220507.png)
+
+ロボットの読み込みの完了後、右側のツールバーの中のPlayボタンを選択し、シミュレーションを開始します
+
+### 3.3 関節情報を取得する
+ポップアップしたウィンドウにおいて、”move”を選択します。
+選択すると、ロボットが動き、ロボットの関節情報がポップアップしたウィンドウに表示されます。
+![](https://storage.googleapis.com/zenn-user-upload/e5b8b5ac76f0-20220507.png)
 
 
 

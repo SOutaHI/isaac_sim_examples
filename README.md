@@ -67,6 +67,12 @@ A repository for managing own scene files of  Issac Sim.
 
 - [37. interactive demos]()
     - exist [article]() in japanese.
+
+- [38. Use Dynamic Control Extension]()
+    - exist [article]() in japanese.
+
+
+
  
 ### Replication
 
